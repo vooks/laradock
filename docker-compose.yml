@@ -333,8 +333,12 @@ services:
       depends_on:
         - php-fpm
       networks:
-        - frontend
-        - backend
+        frontend:
+         aliases:
+          - ${DEV_APP_URL}
+        backend:
+         aliases:
+          - ${DEV_APP_URL}
 
 ### Blackfire ########################################
     blackfire:
@@ -571,7 +575,9 @@ services:
       ports:
         - "${REDIS_CLUSTER_PORT_RANGE}:7000-7005"
       networks:
-        - backend
+        backend:
+         aliases:
+          - ${DEV_APP_URL}
 
 ### ZooKeeper #########################################
     zookeeper:
