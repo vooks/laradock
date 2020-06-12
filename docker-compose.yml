@@ -56,6 +56,7 @@ services:
 
 ### Workspace Utilities ##################################
     workspace:
+      image: ${DOCKER_ECR}:${DOCKER_ECR_TAG}
       build:
         context: ./workspace
         args:
@@ -163,6 +164,7 @@ services:
 
 ### PHP-FPM ##############################################
     php-fpm:
+      image: ${DOCKER_ECR}:${DOCKER_ECR_TAG}
       build:
         context: ./php-fpm
         args:
@@ -247,6 +249,7 @@ services:
 
 ### PHP Worker ############################################
     php-worker:
+      image: ${DOCKER_ECR}:${DOCKER_ECR_TAG}
       build:
         context: ./php-worker
         args:
@@ -312,6 +315,7 @@ services:
 
 ### NGINX Server #########################################
     nginx:
+      image: ${DOCKER_ECR}:${DOCKER_ECR_TAG}
       build:
         context: ./nginx
         args:
@@ -540,6 +544,7 @@ services:
 
 ### MongoDB ##############################################
     mongo:
+      image: ${DOCKER_ECR}:${DOCKER_ECR_TAG}
       build: ./mongo
       ports:
         - "${MONGODB_PORT}:27017"
@@ -571,6 +576,7 @@ services:
 
 ### Redis Cluster ##########################################
     redis-cluster:
+      image: ${DOCKER_ECR}:${DOCKER_ECR_TAG}
       build: ./redis-cluster
       ports:
         - "${REDIS_CLUSTER_PORT_RANGE}:7000-7005"
