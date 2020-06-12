@@ -335,10 +335,10 @@ services:
       networks:
         frontend:
          aliases:
-          - ${DEV_APP_URL}
+          - ${APP_URL}
         backend:
          aliases:
-          - ${DEV_APP_URL}
+          - ${APP_URL}
 
 ### Blackfire ########################################
     blackfire:
@@ -577,7 +577,7 @@ services:
       networks:
         backend:
          aliases:
-          - ${DEV_APP_URL}
+          - ${APP_URL}
 
 ### ZooKeeper #########################################
     zookeeper:
