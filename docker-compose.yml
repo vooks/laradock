@@ -315,7 +315,7 @@ services:
 
 ### NGINX Server #########################################
     nginx:
-      image: ${DOCKER_ECR}/laradock/php-worker:${DOCKER_ECR_TAG}
+      image: ${DOCKER_ECR}/laradock/nginx:${DOCKER_ECR_TAG}
       build:
         context: ./nginx
         args:
