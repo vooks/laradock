@@ -1705,3 +1705,14 @@ services:
         - ${DATA_PATH_HOST}/tomcat/logs:/usr/local/tomcat/logs
       # restart: always
 
+### Vooks ####################################################
+    vooks:
+      container_name: vooks
+      image: ${DOCKER_ECR}/laradock/vooks:${DOCKER_ECR_TAG}
+      build: 
+        context: ./vooks
+        args: 
+          - APP_PATH=${APP_CODE_PATH_HOST}
+      depends_on:
+        - php-fpm
+        - workspace
