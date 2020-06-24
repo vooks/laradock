@@ -24,7 +24,21 @@ RUN find /var/www/ -type f -exec chmod 644 {} \;
 RUN chown -R www-data: /var/www
 RUN chmod -R 755 /var/www/storage
 
-# RUN npm run dev
+RUN rm .DS_Store
+
+# Install npm dependencies and Build
+RUN rm -rf node_modules
+RUN npm install
+RUN npm run dev
+
+# Migrate
+# CMD php artisan migrate --force
+
+# Passport
+RUN php artisan passport:keys
+
+# Clear Caches 
+# RUN php artisan optimize:clear
 
 # Set working directory
 WORKDIR /var/www
